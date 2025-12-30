@@ -1,15 +1,15 @@
 {
   "name": "url-shortener",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Scalable URL Shortener with MongoDB and Docker",
+  "main": "server.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
+    "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "method-override": "^3.0.0",
     "mongodb": "^5.3.0",
@@ -17,6 +17,6 @@
     "shortid": "^2.2.16"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.1"
   }
 }

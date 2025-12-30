@@ -1,4 +1,5 @@
-
+require("dotenv").config();
+const MONGO_URI = process.env.MONGO_URI;
 
 const express = require("express");
 const url_model = require("./models/shorturl.js");
@@ -7,18 +8,17 @@ const app = express();
 
 // constant
 const PORT = 5000;
-const LOCALHOST_IP = "127.0.0.1";
-const MONGO_URI = `mongodb://${LOCALHOST_IP}:27017/Url_Shortner`;
 
-const connectMongoDB = async (mongoURI) => {
+const connectMongoDB = async () => {
   try {
-    await mongoose.connect(mongoURI);
+    await mongoose.connect(MONGO_URI);
     console.log("Successfully Connected to MongoDB !!");
   } catch (error) {
-    console.log(error);
+    console.error("Mongo connection failed:", error.message);
     process.exit(1);
   }
 };
+
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
